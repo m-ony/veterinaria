@@ -18,8 +18,15 @@ class Menu(tk.Frame): #clase manu
         self.configure(background="#94e1b7") 
         tk.Label(self, text="Bienvenido ", background= "#94e1b7",fg="#0C3B21",font=("Courier", 80)).place(x=250, y=100)
         #RUTA DE IMAGEN 
-        ruta_base = os.path.dirname(os.path.abspath(__file__))  # Carpeta donde está el archivo actual
-        ruta_imagen = os.path.join(ruta_base, "Banner.png")
+        ruta_base = os.path.dirname(os.path.abspath(__file__))
+
+        # Subir un nivel (a la carpeta Proyecto)
+        ruta_proyecto = os.path.dirname(ruta_base)
+
+        # Ruta completa de la imagen en la carpeta 'imagenes'
+        ruta_imagen = os.path.join(ruta_proyecto, "img", "Banner.png")
+        #ruta_base = os.path.dirname(os.path.abspath(__file__))  # Carpeta donde está el archivo actual
+        #ruta_imagen = os.path.join(ruta_base, "Banner.png")
 
         imagen = Image.open(ruta_imagen)
         imagen = imagen.resize((200, 650))  #ajusta el tamaño 
